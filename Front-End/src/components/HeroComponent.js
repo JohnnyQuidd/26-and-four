@@ -17,18 +17,17 @@ class Hero extends Component {
 
     expandMenu() {
         this.setState({
-            nameOfClass: "hide-mobile"
+            nameOfClass: "show-desktop"
         });
     }
-
+    
     closeMenu() {
         this.setState({
-            nameOfClass: "show desktop hide-mobile"
+            nameOfClass: "show-desktop hide-mobile"
         });
     }
 
     render(){
-        console.log(this.state.nameOfClass);
         return(
             <> 
             <div className="container">
@@ -40,7 +39,7 @@ class Hero extends Component {
                             <img src={ham} alt="toggle menu" className="menu" id="menu" onClick={() => this.expandMenu()} />
                         </a>
     
-                        <ul className="show-desktop hide-mobile" id="nav">
+                        <ul className={this.state.nameOfClass} id="nav">
                             <li id="exit" className="exit-btn hide-desktop">
                                 <img src={exit} alt="exit menu" onClick={() => this.closeMenu()} />
                             </li>
